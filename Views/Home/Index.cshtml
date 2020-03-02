@@ -2,30 +2,56 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>CENTRIC</h1>
-    <p class="lead"></p>
-    
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Theme Company</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-<div class="row">
-    <div class="col-md-6">
-        <h2>Navigation Help</h2>
-        <p>
-            <li>@Html.ActionLink("Core Values", "About", "Home")</li> 
-            <li>@Html.ActionLink("Contact Information", "Contact", "Home")</li> 
-        </p>
-        
-    </div>
-    <div class="col-md-6">
-        <h2>Centric Consulting Team</h2>
-        <p>
-            Product Owner: David Blocher <br />
-            Scrum Team: Sydney Kovach, Parker Cantwell, Cullen Nagle, Tony Caraffi <br />
-            (Must use valid Log-In in order to view)
+    <div class="jumbotron text-center">
 
-        </p>
-        <p><a class="btn btn-default" href="https://trello.com/b/UGm1ilY6/team-8">Team Trello Board &raquo;</a></p>
+        <style>
+            .jumbotron {
+                background-color: #f4511e; /* Orange */
+                color: #ffffff;
+                padding: 100px 25px;
+                
+            }
+        </style>
+
+        <h1>CENTRIC</h1>
+        <p class="lead"></p>
+
     </div>
-   
-</div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Navigation Help</h2>
+            <p>
+                <li>@Html.ActionLink("Core Values", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact Information", "Contact", "Home")</li>
+                @Html.ActionLink("Employee Profiles", "Index", "UserDetails")
+            </p>
+
+        </div>
+        <div class="col-md-6">
+            <h2>Centric Consulting Team</h2>
+            <p>
+                Product Owner: David Blocher <br />
+                Scrum Team: Sydney Kovach, Parker Cantwell, Cullen Nagle, Tony Caraffi <br />
+                (Must use valid Log-In in order to view)
+
+            </p>
+            <p><a class="btn btn-default" href="https://trello.com/b/UGm1ilY6/team-8">Team Trello Board &raquo;</a></p>
+        </div>
+
+    </div>
+
+</body>
+</html>

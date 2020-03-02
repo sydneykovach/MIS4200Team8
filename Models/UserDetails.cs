@@ -5,12 +5,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MIS4200Team8.Models
 {
-    public class UserDetail
+    public class UserDetails
     {
-        public System.Guid SID { get; set; }
+        
 
-
-        public int Id { get; set; }
+        public int ID { get; set; }
+    
 
         [Display(Name = "First Name")]
         [Required(ErrorMessage = "Employee First Name Required")]
@@ -41,7 +41,7 @@ namespace MIS4200Team8.Models
         [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^(\(\d{3}\) |\d{3}-)\d{3}-\d{4}$",
             ErrorMessage = "Please type the Employee phone number using the following formats (xxx) xxx-xxxx OR xxx-xxx-xxxx")]
-        public string phone { get; set; }
+        public string phoneNumber { get; set; }
 
         [Display(Name = "Date of Hire")]
         [DataType(DataType.Date)]

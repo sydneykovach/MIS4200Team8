@@ -1,19 +1,16 @@
-﻿@model IEnumerable<MIS4200Team8.Models.UserDetail>
+﻿@model IEnumerable<MIS4200Team8.Models.UserDetails>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Employee Profiles";
 }
 
-<h2>Index</h2>
+<h2>Employee Profiles</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.SID)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.firstName)
         </th>
@@ -30,7 +27,7 @@
             @Html.DisplayNameFor(model => model.email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.phone)
+            @Html.DisplayNameFor(model => model.phoneNumber)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.hireDate)
@@ -40,9 +37,6 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SID)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.firstName)
         </td>
@@ -59,15 +53,15 @@
             @Html.DisplayFor(modelItem => item.email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.phone)
+            @Html.DisplayFor(modelItem => item.phoneNumber)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.hireDate)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

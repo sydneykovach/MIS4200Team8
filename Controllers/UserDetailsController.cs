@@ -28,12 +28,12 @@ namespace MIS4200Team8.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserDetail userDetail = db.UserDetails.Find(id);
-            if (userDetail == null)
+            UserDetails userDetails = db.UserDetails.Find(id);
+            if (userDetails == null)
             {
                 return HttpNotFound();
             }
-            return View(userDetail);
+            return View(userDetails);
         }
 
         // GET: UserDetails/Create
@@ -47,16 +47,16 @@ namespace MIS4200Team8.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,SID,firstName,lastName,department,position,email,phone,hireDate")] UserDetail userDetail)
+        public ActionResult Create([Bind(Include = "ID,firstName,lastName,department,position,email,phoneNumber,hireDate")] UserDetails userDetails)
         {
             if (ModelState.IsValid)
             {
-                db.UserDetails.Add(userDetail);
+                db.UserDetails.Add(userDetails);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(userDetail);
+            return View(userDetails);
         }
 
         // GET: UserDetails/Edit/5
@@ -66,12 +66,12 @@ namespace MIS4200Team8.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserDetail userDetail = db.UserDetails.Find(id);
-            if (userDetail == null)
+            UserDetails userDetails = db.UserDetails.Find(id);
+            if (userDetails == null)
             {
                 return HttpNotFound();
             }
-            return View(userDetail);
+            return View(userDetails);
         }
 
         // POST: UserDetails/Edit/5
@@ -79,15 +79,15 @@ namespace MIS4200Team8.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,SID,firstName,lastName,department,position,email,phone,hireDate")] UserDetail userDetail)
+        public ActionResult Edit([Bind(Include = "ID,firstName,lastName,department,position,email,phoneNumber,hireDate")] UserDetails userDetails)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(userDetail).State = EntityState.Modified;
+                db.Entry(userDetails).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(userDetail);
+            return View(userDetails);
         }
 
         // GET: UserDetails/Delete/5
@@ -97,12 +97,12 @@ namespace MIS4200Team8.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserDetail userDetail = db.UserDetails.Find(id);
-            if (userDetail == null)
+            UserDetails userDetails = db.UserDetails.Find(id);
+            if (userDetails == null)
             {
                 return HttpNotFound();
             }
-            return View(userDetail);
+            return View(userDetails);
         }
 
         // POST: UserDetails/Delete/5
@@ -110,8 +110,8 @@ namespace MIS4200Team8.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            UserDetail userDetail = db.UserDetails.Find(id);
-            db.UserDetails.Remove(userDetail);
+            UserDetails userDetails = db.UserDetails.Find(id);
+            db.UserDetails.Remove(userDetails);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
