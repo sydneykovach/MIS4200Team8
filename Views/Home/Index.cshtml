@@ -18,40 +18,29 @@
 
         <style>
             .jumbotron {
-                background-color: #f4511e; /* Orange */
-                color: #ffffff;
+                background-color: transparent; /* Orange */
+                color: #000000;
                 padding: 100px 25px;
                 
             }
         </style>
 
-        <h1>CENTRIC</h1>
+        <h1>Home Page</h1>
+        <h2> this is where users will be able to create posts and view a feed of posts created by other users</h2>
         <p class="lead"></p>
 
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <h2>Navigation Help</h2>
-            <p>
-                <li>@Html.ActionLink("Core Values", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact Information", "Contact", "Home")</li>
-                <li>@Html.ActionLink("Employee Profiles", "Index", "UserDetails")</li>
-</p>
+    <div class="media">
+  <div class="media-left">
+    <img src="img_avatar1.png" class="media-object" style="width:60px">
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">John Doe</h4>
+    <p>Example Post</p>
+  </div>
+</div>
 
-        </div>
-        <div class="col-md-6">
-            <h2>Centric Consulting Team</h2>
-            <p>
-                Product Owner: David Blocher <br />
-                Scrum Team: Sydney Kovach, Parker Cantwell, Cullen Nagle, Tony Caraffi <br />
-                (Must use valid Log-In in order to view)
-
-            </p>
-            <p><a class="btn btn-default" href="https://trello.com/b/UGm1ilY6/team-8">Team Trello Board &raquo;</a></p>
-        </div>
-
-    </div>
 
 </body>
 </html>
