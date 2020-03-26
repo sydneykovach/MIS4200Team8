@@ -50,18 +50,26 @@ namespace MIS4200Team8.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,firstName,lastName,department,position,email,phoneNumber,hireDate")] UserDetails userDetails)
         {
-            if (ModelState.IsValid)
-            {
+           
+            
                 //userDetails.ID = Guid.NewGuid(); thats the original new GUID
                 Guid memberID;
                 Guid.TryParse(User.Identity.GetUserId(), out memberID);
                 userDetails.ID = memberID;
                 db.UserDetails.Add(userDetails);
+            try
+            {
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            catch (Exception)
+            {
 
-            return View(userDetails);
+
+
+
+                return View("DuplicateUser");
+            }
         }
 
         // GET: UserDetails/Edit/5
@@ -76,7 +84,16 @@ namespace MIS4200Team8.Controllers
             {
                 return HttpNotFound();
             }
-            return View(userDetails);
+            Guid memberID;
+            Guid.TryParse(User.Identity.GetUserId(), out memberID);
+            if (userDetails.ID == memberID)
+            {
+                return View(userDetails);
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
         }
 
         // POST: UserDetails/Edit/5
