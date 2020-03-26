@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using MIS4200Team8.DAL;
 using MIS4200Team8.Models;
+using Microsoft.AspNet.Identity;
 
 namespace MIS4200Team8.Controllers
 {
@@ -22,7 +23,7 @@ namespace MIS4200Team8.Controllers
         }
 
         // GET: UserDetails/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
@@ -51,6 +52,10 @@ namespace MIS4200Team8.Controllers
         {
             if (ModelState.IsValid)
             {
+                //userDetails.ID = Guid.NewGuid(); thats the original new GUID
+                Guid memberID;
+                Guid.TryParse(User.Identity.GetUserId(), out memberID);
+                userDetails.ID = memberID;
                 db.UserDetails.Add(userDetails);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -60,7 +65,7 @@ namespace MIS4200Team8.Controllers
         }
 
         // GET: UserDetails/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
@@ -91,7 +96,7 @@ namespace MIS4200Team8.Controllers
         }
 
         // GET: UserDetails/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
@@ -108,7 +113,7 @@ namespace MIS4200Team8.Controllers
         // POST: UserDetails/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(Guid id)
         {
             UserDetails userDetails = db.UserDetails.Find(id);
             db.UserDetails.Remove(userDetails);

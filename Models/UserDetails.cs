@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNet.Identity;
 
 namespace MIS4200Team8.Models
 {
@@ -9,7 +10,7 @@ namespace MIS4200Team8.Models
     {
         
 
-        public int ID { get; set; }
+        public Guid ID { get; set; }
     
 
         [Display(Name = "First Name")]
